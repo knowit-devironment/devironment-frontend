@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import QrReader from 'react-qr-reader'
 import facepaint from 'facepaint';
+import { Redirect } from 'react-router-dom';
+import { ROUTE_PICK_WASTE_TYPE } from '../routes';
 
 
 const breakpoints = [576, 768, 992, 1200];
@@ -20,18 +22,44 @@ const Content = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
 `;
+
+const Description = styled("p")`
+  color: white;
+  font-size: 33px;
+`;
+
 
 class QrScan extends Component {
   constructor() {
     super();
     this.state = {
-      result: 'No result'
+      qr: 'No result',
+      redirect: false,
     };
   }
 
+  handleError = error => {
+
+  };
+
+  handleScan = data => {
+    if (data) {
+      console.log(data);
+      this.setState({
+        qr: data,
+        redirect: true,
+      })
+    }
+  };
+
   render() {
-    return (
+    if (this.state.redirect) {
+      return <Redirect push to={ROUTE_PICK_WASTE_TYPE} />
+    } else return (
       <Content>
         <QrReaderWrapper>
           <QrReader
@@ -40,7 +68,7 @@ class QrScan extends Component {
             onScan={this.handleScan}
           />
         </QrReaderWrapper>
-        <p>Scan QR</p>
+        <Description>Scan QR: {this.state.qr}</Description>
       </Content>
     );
   }

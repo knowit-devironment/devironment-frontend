@@ -7,7 +7,7 @@ import busFrontWhiteIcon from '../assets/bus-front-white.svg'
 import cameraIcon from '../assets/camera.svg'
 import electronicsIcon from '../assets/electronics.svg'
 import glassMetalIcon from '../assets/glass-metal.svg'
-import pickTwoIcon from '../assets/pick-two.svg'
+import pickTrashIcon from '../assets/pick-trash.svg'
 import trashIcon from '../assets/trash.svg'
 
 
@@ -49,8 +49,8 @@ export const GlassMetalIcon = () => (
   <Icon imgSrc={glassMetalIcon} />
 );
 
-export const PickTwoIcon = () => (
-  <Icon imgSrc={pickTwoIcon} />
+export const PickTrashIcon = () => (
+  <Icon imgSrc={pickTrashIcon} />
 );
 
 export const QrIcon = () => (

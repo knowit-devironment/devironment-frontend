@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import App from './App';
-import { ROUTE_SCAN_QR } from './routes';
+import { ROUTE_PICK_WASTE_TYPE, ROUTE_SCAN_QR } from './routes';
 import QrScan from './components/QrScan';
+import PickWasteTypeView from './components/PickWasteTypeView';
 
 
 const AppRouter = () => (
@@ -10,6 +11,7 @@ const AppRouter = () => (
     <>
     <Route exact path="/" component={App} />
     <Route path={ROUTE_SCAN_QR} component={QrScan} />
+    <Route path={ROUTE_PICK_WASTE_TYPE} component={PickWasteTypeView} />
     </>
   </BrowserRouter>
 );

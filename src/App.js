@@ -7,9 +7,12 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
 import { ROUTE_SCAN_QR } from './routes';
 import { CustomButton } from './components/CustomButtons';
-import QrScan from './components/QrScan';
 import { Content } from './globalStyles';
 import qrIcon from './assets/qr.svg'
+import boldTrashIcon from './assets/bold-trash.svg'
+import pickTrashIcon from './assets/pick-trash.svg'
+import { Icon } from './components/Icons';
+import { BUTTON_WIDTH } from './dimensions';
 
 
 const breakpoints = [576, 768, 992, 1200];
@@ -28,19 +31,29 @@ const mq = facepaint(
 
 const WelcomeText = styled("h1")`
   font-size: 33px;
+  margin-bottom: 100px;
 `;
 
 const Walkthrough = styled("div")`
   
 `;
 
-const StepBox = ({icon, text}) => (
-  <div style={{marginBottom: '3vh'}}>
-    <span>insert icon</span>
+// const IconWrapper = styled("span")`
+//
+// `;
+
+const StepBox = ({iconSrc, text}) => (
+  <div style={{marginBottom: '3vh' }}>
+    {/*<IconWrapper>*/}
+      <Icon
+        imgSrc={iconSrc}
+      />
+    {/*</IconWrapper>*/}
     <span style={{
       fontWeight: 'bold',
       fontSize: '23px',
-      fontFamily: 'arial'
+      fontFamily: 'arial',
+      marginLeft: '20px',
     }}>{text}</span>
   </div>
 );
@@ -75,22 +88,22 @@ class App extends Component {
     console.log(match);
 
     return (
-      <div>
-        <Content>
+      <Content>
+        <div style={{width: BUTTON_WIDTH}}>
           <WelcomeText>
             {/* TODO: Insert name?*/}
             Hei på deg..!
           </WelcomeText>
           <Walkthrough>
-            <StepBox icon={""} text={"1. Scan QR på posen"}/>
-            <StepBox icon={""} text={"2. Velg avfall"}/>
-            <StepBox icon={""} text={"3. Kast posen"}/>
+            <StepBox iconSrc={qrIcon} text={"1. Scan QR på posen.."}/>
+            <StepBox iconSrc={pickTrashIcon} text={"2. Velg avfall.."}/>
+            <StepBox iconSrc={boldTrashIcon} text={"3. Kast posen.."}/>
             <SortButtonWrapper>
               <CustomButton text="Start sortering" route={ROUTE_SCAN_QR} />
             </SortButtonWrapper>
           </Walkthrough>
-        </Content>
-      </div>
+        </div>
+      </Content>
     );
   }
 }
