@@ -8,6 +8,7 @@
     "@material-ui/core": "^3.9.2",
     "babel-plugin-emotion": "^10.0.7",
     "facepaint": "^1.2.1",
+    "path": "^0.12.7",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-qr-reader": "^2.1.2",
