@@ -58,7 +58,10 @@ class QrScan extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect push to={ROUTE_PICK_WASTE_TYPE} />
+      // TODO: Different redirect when food and plastic based on parse
+      return <Redirect push to={
+        {pathname: ROUTE_PICK_WASTE_TYPE, state: {qr: this.state.qr}}
+      } />
     } else return (
       <Content>
         <QrReaderWrapper>

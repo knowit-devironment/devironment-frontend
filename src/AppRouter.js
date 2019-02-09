@@ -4,12 +4,13 @@ import App from './App';
 import { ROUTE_PICK_WASTE_TYPE, ROUTE_SCAN_QR } from './routes';
 import QrScan from './components/QrScan';
 import PickWasteTypeView from './components/PickWasteTypeView';
+import FinishView from './components/FinishView';
 
 
 const AppRouter = () => (
   <BrowserRouter>
     <>
-    <Route exact path="/" component={App} />
+    <Route exact path="/" component={FinishView} />
     <Route path={ROUTE_SCAN_QR} component={QrScan} />
     <Route path={ROUTE_PICK_WASTE_TYPE} component={PickWasteTypeView} />
     </>

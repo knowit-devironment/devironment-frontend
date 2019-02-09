@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
 import { ROUTE_SCAN_QR } from './routes';
 import { CustomButton } from './components/CustomButtons';
-import { Content } from './globalStyles';
+import { Content } from './other/globalStyles';
 import qrIcon from './assets/qr.svg'
 import boldTrashIcon from './assets/bold-trash.svg'
 import pickTrashIcon from './assets/pick-trash.svg'
