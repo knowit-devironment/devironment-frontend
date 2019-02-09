@@ -5,29 +5,20 @@ import styled from '@emotion/styled';
 import facepaint from 'facepaint';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
-import { ROUTE_SCAN_QR } from './routes';
-import { CustomButton } from './components/CustomButtons';
-import { Content } from './other/globalStyles';
-import qrIcon from './assets/qr.svg'
-import boldTrashIcon from './assets/bold-trash.svg'
-import pickTrashIcon from './assets/pick-trash.svg'
-import { Icon } from './components/Icons';
-import { BUTTON_WIDTH } from './dimensions';
+import { ROUTE_SCAN_QR } from '../routes';
+import { CustomButton } from './CustomButtons';
+import { Content } from '../other/globalStyles';
+import qrIcon from '../assets/qr.svg'
+import boldTrashIcon from '../assets/bold-trash.svg'
+import pickTrashIcon from '../assets/pick-trash.svg'
+import { Icon } from './Icons';
+import { BUTTON_WIDTH } from '../dimensions';
 
 
 const breakpoints = [576, 768, 992, 1200];
 const mq = facepaint(
   breakpoints.map(bp => `@media (min-width: ${bp}px)`)
 );
-
-//
-// const Content = styled("div")`
-//   display: flex;
-//   height: 100vh;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-// `;
 
 const WelcomeText = styled("h1")`
   font-size: 33px;
@@ -38,17 +29,11 @@ const Walkthrough = styled("div")`
   
 `;
 
-// const IconWrapper = styled("span")`
-//
-// `;
-
 const StepBox = ({iconSrc, text}) => (
   <div style={{marginBottom: '3vh' }}>
-    {/*<IconWrapper>*/}
       <Icon
         imgSrc={iconSrc}
       />
-    {/*</IconWrapper>*/}
     <span style={{
       fontWeight: 'bold',
       fontSize: '23px',
@@ -64,6 +49,7 @@ const SortButtonWrapper = styled("div")`
 `;
 
 
+// Dimensions
 // Knapper font size: 17
 // Header1: 33
 // Header2: 23
@@ -74,8 +60,6 @@ const SortButtonWrapper = styled("div")`
 // width: 252px
 // marginBottom: 20px
 // shadow: blur: 4 spread: 0 x0, y2
-
-
 
 class App extends Component {
   constructor() {
