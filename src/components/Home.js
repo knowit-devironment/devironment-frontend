@@ -13,6 +13,7 @@ import boldTrashIcon from '../assets/bold-trash.svg'
 import pickTrashIcon from '../assets/pick-trash.svg'
 import { Icon } from './Icons';
 import { BUTTON_WIDTH } from '../dimensions';
+import moment from 'moment';
 
 
 const breakpoints = [576, 768, 992, 1200];
@@ -69,7 +70,6 @@ class App extends Component {
 
   render() {
     const { match } = this.props;
-    console.log(match);
 
     return (
       <Content>

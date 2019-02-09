@@ -10,14 +10,7 @@ import arrowDown from '../assets/arrow-down.svg'
 import BackendApi from '../services/api';
 import { WASTE_TYPE_ELECTRONICS, WASTE_TYPE_GLASS_METAL, WASTE_TYPE_MSW } from '../other/wasteTypes';
 import { Redirect } from 'react-router-dom';
-
-// const Content = styled("div")`
-//   display: flex;
-//   height: 100vh;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-// `;
+import moment from 'moment/moment';
 
 const ButtonGroup = styled("div")`
   display: flex;
@@ -47,7 +40,7 @@ class PickWasteTypeView extends Component {
     const request = {
       bagId: this.state.qr,
       wasteCategory: wasteType,
-      dateOfDisposal: "2019-02-08",
+      dateOfDisposal: moment().format('YYYY-MM-DD'),
       userId: "manug"
     };
     console.log("Handle choice:",request)

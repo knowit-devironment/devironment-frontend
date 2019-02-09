@@ -37,7 +37,7 @@ class QrScan extends Component {
   constructor() {
     super();
     this.state = {
-      qr: 'No result',
+      qr: null,
       redirect: false,
     };
   }
@@ -71,7 +71,7 @@ class QrScan extends Component {
             onScan={this.handleScan}
           />
         </QrReaderWrapper>
-        <Description>Scan QR: {this.state.qr}</Description>
+        <Description>Scan QR</Description>
       </Content>
     );
   }

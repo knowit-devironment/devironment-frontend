@@ -26,7 +26,7 @@ class BackendApi {
   static createWasteBag(request) {
     console.log("Create waste bag API:" + request);
     try {
-      console.log(urljoin(apiBaseUrl, 'waste-bags'))
+      console.log(urljoin(apiBaseUrl, 'waste-bags'));
       return Promise
         .resolve(
           fetch(urljoin(apiBaseUrl, 'waste-bags'), apiPostOptions(request))
