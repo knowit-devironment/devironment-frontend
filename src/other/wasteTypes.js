@@ -1,0 +1,5 @@
+export const WASTE_TYPE_FOOD = "FOOD";
+export const WASTE_TYPE_PLASTIC = "PLASTIC";
+export const WASTE_TYPE_ELECTRONICS = "ELECTRONICS";
+export const WASTE_TYPE_MSW = "MSW";
+export const WASTE_TYPE_GLASS_METAL = "GLASS_METAL";
