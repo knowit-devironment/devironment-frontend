@@ -2,21 +2,15 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { Content } from '../other/globalStyles';
 import { CustomButton } from './CustomButtons';
-import { ROUTE_SCAN_QR } from '../routes';
+import { ROUTE_FINISH_VIEW, ROUTE_PICK_WASTE_TYPE, ROUTE_SCAN_QR } from '../routes';
 import trashIcon from '../assets/trash.svg'
 import glassMetal from '../assets/glass-metal.svg'
 import electronics from '../assets/electronics.svg'
 import arrowDown from '../assets/arrow-down.svg'
 import BackendApi from '../services/api';
 import { WASTE_TYPE_ELECTRONICS, WASTE_TYPE_GLASS_METAL, WASTE_TYPE_MSW } from '../other/wasteTypes';
-
-// const Content = styled("div")`
-//   display: flex;
-//   height: 100vh;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-// `;
+import { Redirect } from 'react-router-dom';
+import moment from 'moment/moment';
 
 const ButtonGroup = styled("div")`
   display: flex;
@@ -37,7 +31,8 @@ class PickWasteTypeView extends Component {
     console.log(props.location.state.qr);
 
     this.state = {
-      qr: this.props.location.state.qr
+      qr: this.props.location.state.qr,
+      redirect: false,
     }
   }
 
@@ -45,14 +40,23 @@ class PickWasteTypeView extends Component {
     const request = {
       bagId: this.state.qr,
       wasteCategory: wasteType,
-      dateOfDisposal: "2019-02-08",
+      dateOfDisposal: moment().format('YYYY-MM-DD'),
       userId: "manug"
     };
     console.log("Handle choice:",request)
-    BackendApi.createWasteBag(request)
+    BackendApi.createWasteBag(request);
+    this.setState({
+      redirect: true,
+    })
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect push to={
+        {pathname: ROUTE_FINISH_VIEW }
+      } />
+    }
+
     return (
       <Content>
         <Title>
